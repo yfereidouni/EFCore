@@ -17,6 +17,12 @@ namespace EFCore.DAL
             base.OnConfiguring(optionsBuilder);
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new PersonConfiguration());
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<Person> People { get; set; }
     }
 }
