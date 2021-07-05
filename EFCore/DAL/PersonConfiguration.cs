@@ -13,8 +13,8 @@ namespace EFCore.DAL
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            builder.ToTable("tbl_People", "dbo");
-            builder.Property(c => c.FirstName).HasColumnName("fname").HasMaxLength(50).IsRequired().IsUnicode();
+            builder.ToTable("People", "dbo");
+            builder.Property(c => c.FirstName).HasMaxLength(50).IsRequired().IsUnicode();
         }
     }
 }

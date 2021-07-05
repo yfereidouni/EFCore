@@ -47,14 +47,17 @@ namespace EFCore.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(true)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PersonId");
 
-                    b.ToTable("People");
+                    b.ToTable("People", "dbo");
                 });
 
             modelBuilder.Entity("EFCore.Entities.Contact", b =>
