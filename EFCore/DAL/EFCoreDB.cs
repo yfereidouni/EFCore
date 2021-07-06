@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EFCore.DAL
 {
-    public class PersonDB : DbContext
+    public class EFCoreDB : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,5 +24,6 @@ namespace EFCore.DAL
         }
 
         public DbSet<Person> People { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }

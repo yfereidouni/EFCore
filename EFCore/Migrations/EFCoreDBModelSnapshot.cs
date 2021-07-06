@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCore.Migrations
 {
-    [DbContext(typeof(PersonDB))]
-    partial class PersonDBModelSnapshot : ModelSnapshot
+    [DbContext(typeof(EFCoreDB))]
+    partial class EFCoreDBModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -36,7 +36,7 @@ namespace EFCore.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("Contact");
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("EFCore.Entities.Person", b =>

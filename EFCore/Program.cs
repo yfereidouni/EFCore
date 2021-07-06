@@ -10,7 +10,34 @@ namespace EFCore
         static void Main(string[] args)
         {
             //CRUD_Without_Interface_Implementation();
+            //CRUD_With_Interface_Implementation();
 
+
+            //PersonRepository personRepository = new PersonRepository();
+            //Person yasser = new Person()
+            //{
+            //    FirstName = "Farid",
+            //    LastName = "Zafarheidari",
+            //};
+            //yasser.Contacts.Add(new Contact()
+            //{
+            //    PhoneNumber = "09124545900"
+            //});
+            //personRepository.Insert(yasser);
+
+
+            PersonRepository personRepository = new PersonRepository();
+            var data1 = personRepository.GetAll();
+            foreach (var item in data1)
+            {
+                Console.Write($"{item.FirstName} {item.LastName}");
+                Console.WriteLine(item.PersonId);
+            }
+        }
+
+        #region CRUD_With_Interface_Implementation
+        private static void CRUD_With_Interface_Implementation()
+        {
             PersonRepository personRepository = new PersonRepository();
 
             //Create -----------------------------------------------------------
@@ -39,11 +66,12 @@ namespace EFCore
                 Console.WriteLine($"Name : {item.FirstName} | {item.LastName} ");
             }
         }
+        #endregion
 
         #region CRUD_Without_Interface_Implementation
         private static void CRUD_Without_Interface_Implementation()
         {
-            using (var ctx = new PersonDB())
+            using (var ctx = new EFCoreDB())
             {
                 Person person = new Person
                 {

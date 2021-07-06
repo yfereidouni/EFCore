@@ -9,38 +9,38 @@ namespace EFCore.DAL
 {
     public class PersonRepository : IPersonRepository
     {
-        private readonly PersonDB personDB = new PersonDB();
+        private readonly EFCoreDB efCoreDB = new EFCoreDB();
 
         public void Delete(Person person)
         {
-            personDB.People.Remove(person);
-            personDB.SaveChanges();
+            efCoreDB.People.Remove(person);
+            efCoreDB.SaveChanges();
         }
 
         public Person Find(int id)
         {
-            return personDB.People.Find(id);
+            return efCoreDB.People.Find(id);
         }
 
         public List<Person> GetAll()
         {
-            return personDB.People.ToList();
+            return efCoreDB.People.ToList();
         }
 
         public void Insert(Person person)
         {
-            personDB.People.Add(person);
-            personDB.SaveChanges();
+            efCoreDB.People.Add(person);
+            efCoreDB.SaveChanges();
         }
 
         public void Update(Person person)
         {
-            var updatePerson =  personDB.People.Find(person.PersonId);
+            var updatePerson = efCoreDB.People.Find(person.PersonId);
             
             updatePerson.FirstName = person.FirstName;
             updatePerson.LastName = person.LastName;
 
-            personDB.SaveChanges();
+            efCoreDB.SaveChanges();
         }
     }
 }

@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCore.Migrations
 {
-    [DbContext(typeof(PersonDB))]
-    [Migration("20210704150006_init4")]
-    partial class init4
+    [DbContext(typeof(EFCoreDB))]
+    [Migration("20210705174826_1400-04-14_Ver01")]
+    partial class _14000414_Ver01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,7 +38,7 @@ namespace EFCore.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("Contact");
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("EFCore.Entities.Person", b =>
