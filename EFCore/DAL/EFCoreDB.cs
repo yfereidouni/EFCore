@@ -20,6 +20,7 @@ namespace EFCore.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 
